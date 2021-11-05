@@ -2,8 +2,12 @@
   <div class="row p-5">
       <div class="col" *ngFor="let b of books">
           <figure class="figure">
-              <img class="img-fluid" src='{{b.image}}'/>
+              <img class="img-fluid" src='{{b.image}}' (click)="onSelected(b)" />
+
               <figcaption class="title-caption text-center">{{b.name}}. [{{b.editorial.name}}]</figcaption>
+              <div *ngIf="selected">
+                <app-book-detail [bookDetail]="selectedBook"></app-book-detail>
+              </div>
           </figure>
       </div>
   </div>
